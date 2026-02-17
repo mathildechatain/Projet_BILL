@@ -11,7 +11,7 @@ if len(argv)<2: #si l'argument a une taille supérieure à 2
 
 vcf_file=argv[1]
 List_VAF=[]
-List_pos=[]
+List_SUPPORT=[]
 with open(vcf_file) as f:
     for line in f:
         if line.startswith("#"):
@@ -25,13 +25,9 @@ with open(vcf_file) as f:
         print(f"Chrom: {chrom}, Pos: {pos}, ID: {id}, Filter: {filter}, Info: {info}")    
         info2=info.split(";")
         VAF=info2[10].split("=")[1]
+        SUPPORT=info2[4].split("=")[1]
         List_VAF.append(VAF)
-        List_pos.append(pos)
-    print(f"VAF: {List_VAF}")
+        List_SUPPORT.append(SUPPORT)
 
-fig, ax = plt.subplots()  # Il manquait les parenthèses
-ax.plot(List_pos,List_VAF)  # ajout de marqueurs pour mieux visualiser
-ax.set_xlabel("position des variants")
-ax.set_ylabel("VAF")
-ax.set_title("VAF des variants dans le VCF")
-plt.show()  #
+    print(f"VAF: {List_VAF}")
+    print(f"SUPPORT : {List_SUPPORT}")
