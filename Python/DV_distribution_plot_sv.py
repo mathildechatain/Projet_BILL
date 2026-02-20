@@ -44,4 +44,14 @@ plt.title("Distribution des valeurs DV des variants")
 plt.xlabel("DV ( Depth Variant)")
 plt.ylabel("Nombre de variants")
 plt.grid(axis='y', alpha=0.75)
+
+# Chemin vers le dossier plot (dossier déjà existant à la racine du repo)
+repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # remonte de python/ à la racine
+plot_folder = os.path.join(repo_root, "Plots")
+plot_path = os.path.join(plot_folder, "Distribution_DV_variants_SV.png")
+
+# Enregistrer le plot dans le dossier Plots
+plt.savefig(plot_path)
+print(f"Plot enregistré dans {plot_path}")
+
 plt.show()
