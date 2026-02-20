@@ -3,7 +3,7 @@ import sys
 import matplotlib.pyplot as plt
 import numpy as np
 import os
-
+import matplotlib.pyplot as plt
 
 argv=sys.argv
 if len(argv)<2: #si l'argument a une taille supérieure à 2
@@ -33,8 +33,20 @@ print(f"QUAL: {List_QUAL}")
                 #    print(f"Chrom: {chrom}, Pos: {pos}, QUAL: {qual} → Haute qualité")
                  #   var_id = f"{chrom}_{pos}"
                   #  print(var_id)
-output_file = "QUAL_list.csv"
+output_file = "QUAL_list.txt"
 with open(output_file, "w") as out:
     out.write(",".join(str(q) for q in List_QUAL))
 
 print(f"Liste QUAL enregistrée dans {output_file} (valeurs séparées par des virgules)")
+with open(output_file, "r") as f:
+    line = f.readline()  # tout est sur une seule ligne
+    qual_values = [float(x) for x in line.strip().split(",")]  # convertir en float
+
+print(f"Nombre de variants : {len(qual_values)}")
+plt.figure(figsize=(10,6))
+plt.hist(qual_values, bins=50, color='skyblue', edgecolor='black')
+plt.title("Distribution des valeurs QUAL des variants")
+plt.xlabel("QUAL")
+plt.ylabel("Nombre de variants")
+plt.grid(axis='y', alpha=0.75)
+plt.show()
