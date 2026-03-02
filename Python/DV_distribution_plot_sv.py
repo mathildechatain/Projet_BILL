@@ -40,7 +40,7 @@ with open(output_file_support, "r") as f:
 
 plt.figure(figsize=(10,6))
 plt.hist(DV_values, bins=50, color='skyblue', edgecolor='black')
-plt.title("Distribution des valeurs DV des variants")
+plt.title("Distribution des valeurs DV des variants structuraux pour P25 et P27")
 plt.xlabel("DV ( Depth Variant)")
 plt.ylabel("Nombre de variants")
 plt.grid(axis='y', alpha=0.75)

@@ -21,3 +21,7 @@ bcftools merge P27-1.trimed1000.sv_sniffles_SV_filtered.vcf.gz P27-2.trimed1000.
 bcftools merge P25-1.trimed1000.sv_sniffles_SV_filtered.vcf.gz P25-2.trimed1000.sv_sniffles_SV_filtered.vcf.gz P25-3.trimed1000.sv_sniffles_SV_filtered.vcf.gz P25-4.trimed1000.sv_sniffles_SV_filtered.vcf.gz P25-5.trimed1000.sv_sniffles_SV_filtered.vcf.gz \
     P27-1.trimed1000.sv_sniffles_SV_filtered.vcf.gz P27-2.trimed1000.sv_sniffles_SV_filtered.vcf.gz P27-3.trimed1000.sv_sniffles_SV_filtered.vcf.gz P27-4.trimed1000.sv_sniffles_SV_filtered.vcf.gz P27-5.trimed1000.sv_sniffles_SV_filtered.vcf.gz \
     -o merged_P25-27.froid.vcf
+bcftools merge P25-6.trimed1000.sv_sniffles_SV_filtered.vcf.gz P25-7.trimed1000.sv_sniffles_SV_filtered.vcf.gz P25-8.trimed1000.sv_sniffles_SV_filtered.vcf.gz P25-9.trimed1000.sv_sniffles_SV_filtered.vcf.gz P25-10.trimed1000.sv_sniffles_SV_filtered.vcf.gz \
+    -o merged_P25.chaud.vcf
+bcftools merge P27-6.trimed1000.sv_sniffles_SV_filtered.vcf.gz P27-7.trimed1000.sv_sniffles_SV_filtered.vcf.gz P27-8.trimed1000.sv_sniffles_SV_filtered.vcf.gz P27-9.trimed1000.sv_sniffles_SV_filtered.vcf.gz P27-10.trimed1000.sv_sniffles_SV_filtered.vcf.gz \
+    -o merged_P27.chaud.vcf
