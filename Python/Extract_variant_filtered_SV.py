@@ -11,7 +11,7 @@ if len(sys.argv) < 2:
 #the folder containing the VCF files is passed as an argument
 vcf_folder = sys.argv[1]  
 # Create the output folder, named vcf_filtered, if it doesn't exist
-output_folder = os.path.join(vcf_folder, "vcf_filtered") 
+output_folder = os.path.join("../Files", "vcf_filtered_sv") 
 Path(output_folder).mkdir(parents=True,exist_ok=True) 
 
 # Function to filter the VCF file based on the DV (index 9, 4th value of FORMAT)

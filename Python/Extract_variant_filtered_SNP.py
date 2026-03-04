@@ -11,7 +11,7 @@ if len(sys.argv) < 2:
 #the folder containing the VCF files is passed as an argument
 vcf_folder = sys.argv[1]  
 # Create the output folder, named vcf_filtered, if it doesn't exist
-output_folder = os.path.join(vcf_folder, "vcf_filtered")
+output_folder = os.path.join("../Files", "vcf_filtered_snp")
 Path(output_folder).mkdir(exist_ok=True)
 
 # Function to filter SNPs based on our criterion QUAL > 10, which takes as input a VCF file and an output file
