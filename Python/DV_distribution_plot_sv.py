@@ -60,5 +60,4 @@ plot_path = os.path.join(plot_folder, "Distribution_DV_variants_SV.png")
 # Enregistrer le plot
 plt.savefig(plot_path)
 print(f"Plot enregistré dans {plot_path}")
-
 plt.show()
