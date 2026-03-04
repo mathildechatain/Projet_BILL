@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Créer le dossier de sortie si nécessaire
-mkdir -p ../Files/plotfiles
+mkdir -p ../Files/plot_files
 
 # Fichier de sortie
-output="../Files/plotfiles/count_variants_sv.tsv"
+output="../Files/plot_files/count_variants_sv.tsv"
 
 # Écrire l'en-tête
 echo -e "File\tN_variants" > "$output"
