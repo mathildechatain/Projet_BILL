@@ -16,22 +16,13 @@ vcf_folder = sys.argv[1]
 output_folder = os.path.join("..", "Files", "vcf_filtered_sv")
 Path(output_folder).mkdir(parents=True, exist_ok=True)
 
-def get_dv_threshold(filename):
-    """Retourne le seuil DV spécifique à la génération en fonction du nom de fichier."""
-    if filename.startswith("P15"):
-        return 200
-    if filename.startswith(("P25", "P27")):
-        return 200
-    if filename.startswith("P30"):
-        return 200
-    if filename.startswith("P50"):
-        return 200
-    if filename.startswith("P65"):
-        return 200
-    return None
+def get_dv_threshold(_filename):
+    """Retourne un seuil DV unique, identique pour toutes les générations."""
+    return 200
 
 
-# Fonction pour filtrer les variants structuraux en fonction de notre critère DV >= seuil spécifique à la génération, qui prend en entrée un fichier VCF et un fichier de sortie
+# Fonction pour filtrer les variants structuraux avec un seuil global DV > 200.
+# Elle prend en entrée un fichier VCF et un fichier de sortie.
 def filter_SV_vcf(input_file, output_file, dv_threshold):
 
     # ouvre le fichier VCF d'entrée en lecture et le fichier de sortie en écriture
@@ -47,15 +38,13 @@ def filter_SV_vcf(input_file, output_file, dv_threshold):
                 try:
                     # Accède à la colonne DV (index 9, 4ème valeur de FORMAT)
                     DV = float(cols[9].split(":")[3])
-                    # Filtre la ligne en fonction du seuil DV spécifique à la génération
-                    if DV >= dv_threshold:
+                    # Filtre la ligne avec un seuil global: DV > 200
+                    if DV > dv_threshold:
                         # Si la condition est remplie, écrit la ligne dans le fichier de sortie
                         outfile.write(line)
                 except ValueError:
                     continue
 
-# ne garde que les fichiers nommés exactement comme:
-# P15-1.trimed1000.sv_sniffles.vcf (numéro génération/réplicat variable)
 name_pattern = re.compile(r"^P\d+-\d+\.trimed1000\.sv_sniffles\.vcf$")
 vcf_files = [
     p for p in glob.glob(os.path.join(vcf_folder, "*.vcf"))
@@ -74,7 +63,7 @@ for vcf_file in vcf_files:
     output_file = os.path.join(output_folder, f"{base_name}_SV_filtered.vcf")
     # Appelle la fonction de filtrage pour chaque fichier VCF
     filter_SV_vcf(vcf_file, output_file, dv_threshold)
-    print(f"Filtered {base_name} with DV >= {dv_threshold}")
+    print(f"Filtered {base_name} with DV > {dv_threshold}")
 
 # Affiche un message pour indiquer que le processus de filtrage est terminé
 print("SV filtering completed!")

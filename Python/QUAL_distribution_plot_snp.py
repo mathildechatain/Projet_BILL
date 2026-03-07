@@ -38,7 +38,7 @@ print(f"Liste QUAL enregistrée dans {output_file}")
 if List_QUAL:
     plt.figure(figsize=(10,6))
     plt.hist(List_QUAL, bins=50, color='skyblue', edgecolor='black')
-    plt.title("Distribution des valeurs QUAL des polymorphismes nucléotidiques simples pour P25 et P27")
+    plt.title("Distribution des valeurs QUAL des SNPs de toutes les générations : P15, P25, P27, P30, P50, P65, P90")
     plt.xlabel("QUAL")
     plt.ylabel("Nombre de variants")
     plt.grid(axis='y', alpha=0.75)
