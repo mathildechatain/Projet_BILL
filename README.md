@@ -28,8 +28,9 @@ Output : All the filtered files are now located in <Files/vcf_filtered_sv> or <F
 This script builds a summary table of structural variants (SV) from filtered VCF files (located in the vcf_filtered_sv folder), annotates each variant by ORF using the CyHV-3 GFF3 genome annotation, and export CSV file.
 
 From the Python directory, use the command:
-
+```bash
 python3 <build_summary_table_sv_with_ORF.py>
+```
 
 Output : A detailed CSV of all variants with ORF annotation will be created in:
 Files/plot_files/summary_table_sv_with_ORF.csv
