@@ -65,7 +65,7 @@ plot_folder = os.path.join(repo_root, "Plots", "DV_distribution")
 os.makedirs(plot_folder, exist_ok=True)
 
 # Chemin complet du fichier
-plot_path = os.path.join(plot_folder, "Distribution_DV_variants_SV_P27.png")
+plot_path = os.path.join(plot_folder, "Distribution_DV_variants_SV_P25_P27.png")
 
 # Enregistrer le plot
 plt.savefig(plot_path)
