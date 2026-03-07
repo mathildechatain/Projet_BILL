@@ -3,51 +3,51 @@ import glob
 from pathlib import Path
 import sys
 
-# check if the user provided the folder as an argument
+# vérifie que l'utilisateur a fourni le dossier contenant les fichiers VCF en argument
 if len(sys.argv) < 2:
-    print("Usage: python filter_snp_vcf.py <dossier_vcf>") #else print an error message and exit    
+    print("Usage: python filter_snp_vcf.py <dossier_vcf>") # si ce n'est pas le cas, affiche un message d'utilisation et quitte le programme avec un code d'erreur    
     sys.exit(1)
 
-#the folder containing the VCF files is passed as an argument
-vcf_folder = sys.argv[1]  
-# Create the output folder, named vcf_filtered, if it doesn't exist
+# le dossier contenant les fichiers VCF est passé en argument
+vcf_folder = sys.argv[1]
+# Crée le dossier de sortie, nommé vcf_filtered, s'il n'existe pas
 output_folder = os.path.join("../Files", "vcf_filtered_snp")
 Path(output_folder).mkdir(exist_ok=True)
 
-# Function to filter SNPs based on our criterion QUAL > 10, which takes as input a VCF file and an output file
+# Fonction pour filtrer les SNP en fonction de notre critère QUAL > 10, qui prend en entrée un fichier VCF et un fichier de sortie
 def filter_snp_vcf(input_file, output_file):
 
-    # Open the input VCF file and the output file to write the filtered results
+    # ouvre le fichier VCF d'entrée en lecture et le fichier de sortie en écriture
     with open(input_file, "r") as infile, open(output_file, "w") as outfile:
-        # Iterate over each line in the input file
+        # Itère sur chaque ligne du fichier d'entrée
         for line in infile:
             if line.startswith("#"):
-                # Keep all header lines (columns names) unchanged in the output file
+                # Conserve toutes les lignes d'en-tête (noms de colonnes) inchangées dans le fichier de sortie
                 outfile.write(line)
             else:
-                # Split the line into columns to access the QUAL column
+                # Divise la ligne en colonnes en utilisant la tabulation comme délimiteur
                 cols = line.strip().split("\t")
                 try:
-                    # Access the QUAL column (index 5) and check if it's more than 10
+                    # Accède à la colonne QUAL (index 5) et vérifie si elle est supérieure à 10
                     qual = float(cols[5])
-                    if qual > 10:
-                        # If QUAL is greater than 10, write the line to the output file
+                    if qual > 20:
+                        # Si QUAL est supérieure à 10, écrit la ligne dans le fichier de sortie
                         outfile.write(line)
                 except ValueError:
                     continue
 
-# Processing all VCF files
-# Use glob to find all VCF files in the specified folder that end with "snp.vcf", which correspond to the SNP variants
+# Traitement de tous les fichiers VCF
+# Utilise glob pour trouver tous les fichiers VCF dans le dossier spécifié qui se terminent par "snp.vcf", ce qui correspond aux variants SNP
 vcf_files = glob.glob(os.path.join(vcf_folder, "*snp.vcf"))
-# Iterate over each VCF file found and apply the filtering function
+# Itère sur chaque fichier VCF trouvé et applique la fonction de filtrage
 for vcf_file in vcf_files:
-    # Generate the output file name by adding "_SNP_filtered" to the base name of the input file
+    # Génère le nom du fichier de sortie en ajoutant "_SNP_filtered" au nom de base du fichier d'entrée
     base_name = os.path.basename(vcf_file).replace(".vcf", "")
-    # Create the full path for the output file
+    # Crée le chemin complet pour le fichier de sortie
     output_file = os.path.join(output_folder, f"{base_name}_SNP_filtered.vcf")
-    # Call the filtering function for each VCF file
+    # Appelle la fonction de filtrage pour chaque fichier VCF
     filter_snp_vcf(vcf_file, output_file)
 
-# Print a message to indicate that the filtering process is completed
+# Affiche un message pour indiquer que le processus de filtrage est terminé
 print("SNP filtering completed!")
 
