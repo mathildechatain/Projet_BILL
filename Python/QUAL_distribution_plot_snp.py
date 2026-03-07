@@ -12,7 +12,7 @@ vcf_folder = argv[1]
 List_QUAL = []
 
 for filename in os.listdir(vcf_folder):
-    if filename.endswith(".snp.vcf"):  # assure-toi que c'est exactement ce suffixe
+    if filename.endswith(".snp.vcf"): 
         filepath = os.path.join(vcf_folder, filename)
         with open(filepath) as f:
             for line in f:
