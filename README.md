@@ -7,7 +7,7 @@ This project brings together students from the Bioinformatics and IMHE master’
 ## USAGE
 
 ### Usage: DV_distribution_plot_sv scripts / QUAL_distribution_plot_snp (Python)
-DV or QUAL distribution scripts are run from the Python folder (cd Python) using the following command:
+DV or QUAL distribution scripts are run from src/Python using the following command :
 
 ```bash
 python3 <script_name.py> <path_to_raw_VCF_folder>
@@ -16,7 +16,7 @@ The plots can be viewed in the Plots folder and enabled setting thresholds for t
 
 
 ### Usage: Extract_variant_filtered scripts (Python)
-Filtered variant extraction scripts are run from the Python folder (cd Python) using the following command:
+Filtered variant extraction scripts are run from src/Python using the following command:
 
 ```bash
 python3 <script_name.py> <path_to_raw_VCF_folder>
@@ -27,7 +27,7 @@ Output : All the filtered files are now located in <Files/vcf_filtered_sv> or <F
 ### Usage: build_summary_table_sv_with_ORF.py
 This script builds a summary table of structural variants (SV) from filtered VCF files (located in the vcf_filtered_sv folder), annotates each variant by ORF using the CyHV-3 GFF3 genome annotation, and export CSV file.
 
-From the Python directory, use the command:
+From the Python directory (cd src/Python), use the command:
 ```bash
 python3 <build_summary_table_sv_with_ORF.py>
 ```
