@@ -18,7 +18,7 @@ for filename in os.listdir(vcf_folder):                                         
             for line in f:                                                                  # la variable line parcoura successivement chaque ligne du fichier
                 if line.startswith("#"):                                                    # conditionnelle: si la ligne commence par "#"
                     continue                                                                # ignorer la ligne
-                fields = line.strip().split("\t")                                           # la variable "fields" est une liste qui contiendra toutes les colonnes d'une ligne
+                fields = line.strip().split("\t")                                           # la variable "fields" est une liste qui contiendra toutes les colonnes d'une ligne  en utilisant la tabulation comme délimiteur
                 try:                                                                        #
                     qual = float(fields[5])                                                 # la variable "qual" contiendra la valeur de qualité situé à la 5eme position de "fields"
                     List_QUAL.append(qual)                                                  # La valeur de qual sera ajouté à la liste "List_QUAL"
