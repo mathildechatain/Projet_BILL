@@ -1,4 +1,4 @@
-#!/usr/bin/env python3                                                                                    //pour avoir explication du code voir les commentaires de QUAL_distribution_snp
+#!/usr/bin/env python3                                                                                    # pour avoir explication du code voir les commentaires de QUAL_distribution_snp
 import sys
 import matplotlib.pyplot as plt
 import os
@@ -12,7 +12,7 @@ vcf_folder = argv[1]
 List_QUAL = []
 
 for filename in os.listdir(vcf_folder):
-    if filename.endswith(".snp.vcf") and (filename.startswith("P25") or filename.startswith("P27")):    //ne selectionne que les fichiers des générations P25 et P27
+    if filename.endswith(".snp.vcf") and (filename.startswith("P25") or filename.startswith("P27")):    # ne selectionne que les fichiers des générations P25 et P27
         filepath = os.path.join(vcf_folder, filename)
         with open(filepath) as f:
             for line in f:
