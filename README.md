@@ -6,32 +6,35 @@ This project brings together students from the Bioinformatics and IMHE master’
 
 ## USAGE
 
-### Usage: DV_distribution_plot_sv scripts / QUAL_distribution_plot_snp (Python)
-DV or QUAL distribution scripts are run from src/Python using the following command :
-
-```bash
-python3 <script_name.py> <path_to_raw_VCF_folder>
-```
-The plots can be viewed in the Plots folder and enabled setting thresholds for the subsequent scripts.
-
-
-### Usage: Extract_variant_filtered scripts (Python)
-Filtered variant extraction scripts are run from src/Python using the following command:
+### 1. Quality distribution plots
+`DV_distribution_plot_sv` and `QUAL_distribution_plot_snp` scripts are run from `src/Python` using:
 
 ```bash
 python3 <script_name.py> <path_to_raw_VCF_folder>
 ```
 
-Output : All the filtered files are now located in <Files/vcf_filtered_sv> or <Files/vcf_filtered_snp>
+The plots are saved in `Plots/` and can be used to define filtering thresholds for downstream analyses.
 
-### Usage: build_summary_table_sv_with_ORF.py
-This script builds a summary table of structural variants (SV) from filtered VCF files (located in the vcf_filtered_sv folder), annotates each variant by ORF using the CyHV-3 GFF3 genome annotation, and export CSV file.
 
-From the Python directory (cd src/Python), use the command:
+### 2. Filtered variant extraction
+Filtered variant extraction scripts are run from `src/Python` using:
+
 ```bash
-python3 <build_summary_table_sv_with_ORF.py>
+python3 Extract_variant_filtered_SV.py <path_to_raw_VCF_folder>
+python3 Extract_variant_filtered_SNP.py <path_to_raw_VCF_folder>
 ```
 
-Output : A detailed CSV of all variants with ORF annotation will be created in:
-Files/plot_files/summary_table_sv_with_ORF.csv
-This CSV can be used for downstream plotting and analysis.
+Output: filtered files are written in `Files/vcf_filtered_sv/` or `Files/vcf_filtered_snp/`.
+
+
+### 3. Automated pipelines
+After generating filtered VCFs, the full downstream analyses can be launched from the project root with:
+
+```bash
+./run_pipeline_SV.sh
+./run_pipeline_snp.sh
+```
+
+`run_pipeline_SV.sh` generates all SV analysis CSV files and plots by executing the required Python and R scripts in the correct order.
+
+`run_pipeline_snp.sh` generates all SNP analysis CSV files and plots by executing the required Python and R scripts in the correct order.
