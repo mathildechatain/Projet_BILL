@@ -1,6 +1,6 @@
 library(ggplot2)
 
-infile <- "../../Files/plot_files/snp_sc_turnover.csv"
+infile <- "../../Files/plot_files/snp_turnover.csv"
 outfile <- "../../Plots/snp_selection_par_passage.png"
 
 d <- read.csv(infile, stringsAsFactors = FALSE)
