@@ -5,7 +5,6 @@ infile <- "../../Files/plot_files/summary_table_snp_with_ORF.csv"
 outfile <- "../../Plots/snp_par_ORF.png"
 
 # === 1. Charger le fichier ===
-# Remplace "variants.csv" par ton fichier
 d <- read.csv(infile, stringsAsFactors = FALSE)
 
 
