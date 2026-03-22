@@ -1,0 +1,15 @@
+"replicate","condition","category","n_sv"
+"10","Chaud","SV acquis",13
+"10","Chaud","SV perdus",3
+"2","Froid","SV acquis",9
+"2","Froid","SV perdus",34
+"3","Froid","SV acquis",10
+"3","Froid","SV perdus",5
+"4","Froid","SV acquis",11
+"4","Froid","SV perdus",9
+"7","Chaud","SV acquis",18
+"7","Chaud","SV perdus",7
+"8","Chaud","SV acquis",1
+"8","Chaud","SV perdus",2
+"9","Chaud","SV acquis",12
+"9","Chaud","SV perdus",8

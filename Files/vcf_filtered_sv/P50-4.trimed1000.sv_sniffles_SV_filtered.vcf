@@ -1,0 +1,55 @@
+##fileformat=VCFv4.2
+##source=Sniffles2_2.2
+##command="/data/bin/sniffles --threads 4 --minsvlen 10 --minsupport 10 --reference ressources/references/KHV-U.fasta --sample-id P50-4.trimed1000 --input /data/experimentaldata/Bill/2024/tmp/P50-on-KHVU/P50-4.trimed1000.aligned.sorted.bam --vcf /data/experimentaldata/Bill/2024/tmp/P50-on-KHVU/P50-4.trimed1000.sv_sniffles.vcf"
+##fileDate="2024/09/30 12:45:04"
+##contig=<ID=DQ657948.1,length=295146>
+##ALT=<ID=INS,Description="Insertion">
+##ALT=<ID=DEL,Description="Deletion">
+##ALT=<ID=DUP,Description="Duplication">
+##ALT=<ID=INV,Description="Inversion">
+##ALT=<ID=BND,Description="Breakend; Translocation">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype quality">
+##FORMAT=<ID=DR,Number=1,Type=Integer,Description="Number of reference reads">
+##FORMAT=<ID=DV,Number=1,Type=Integer,Description="Number of variant reads">
+##FORMAT=<ID=ID,Number=1,Type=String,Description="Individual sample SV ID for multi-sample output">
+##FILTER=<ID=PASS,Description="All filters passed">
+##FILTER=<ID=GT,Description="Genotype filter">
+##FILTER=<ID=SUPPORT_MIN,Description="Minimum read support filter">
+##FILTER=<ID=STDEV_POS,Description="SV Breakpoint standard deviation filter">
+##FILTER=<ID=STDEV_LEN,Description="SV length standard deviation filter">
+##FILTER=<ID=COV_MIN,Description="Minimum coverage filter">
+##FILTER=<ID=COV_CHANGE,Description="Coverage change filter">
+##FILTER=<ID=COV_CHANGE_FRAC,Description="Coverage fractional change filter">
+##FILTER=<ID=MOSAIC_AF,Description="Mosaic maximum allele frequency filter">
+##FILTER=<ID=ALN_NM,Description="Length adjusted mismatch filter">
+##FILTER=<ID=STRAND,Description="Strand support filter">
+##FILTER=<ID=SVLEN_MIN,Description="SV length filter">
+##INFO=<ID=PRECISE,Number=0,Type=Flag,Description="Structural variation with precise breakpoints">
+##INFO=<ID=IMPRECISE,Number=0,Type=Flag,Description="Structural variation with imprecise breakpoints">
+##INFO=<ID=MOSAIC,Number=0,Type=Flag,Description="Structural variation classified as putative mosaic">
+##INFO=<ID=SVLEN,Number=1,Type=Integer,Description="Length of structural variation">
+##INFO=<ID=SVTYPE,Number=1,Type=String,Description="Type of structural variation">
+##INFO=<ID=CHR2,Number=1,Type=String,Description="Mate chromsome for BND SVs">
+##INFO=<ID=SUPPORT,Number=1,Type=Integer,Description="Number of reads supporting the structural variation">
+##INFO=<ID=SUPPORT_INLINE,Number=1,Type=Integer,Description="Number of reads supporting an INS/DEL SV (non-split events only)">
+##INFO=<ID=SUPPORT_LONG,Number=1,Type=Integer,Description="Number of soft-clipped reads putatively supporting the long insertion SV">
+##INFO=<ID=END,Number=1,Type=Integer,Description="End position of structural variation">
+##INFO=<ID=STDEV_POS,Number=1,Type=Float,Description="Standard deviation of structural variation start position">
+##INFO=<ID=STDEV_LEN,Number=1,Type=Float,Description="Standard deviation of structural variation length">
+##INFO=<ID=COVERAGE,Number=.,Type=Float,Description="Coverages near upstream, start, center, end, downstream of structural variation">
+##INFO=<ID=STRAND,Number=1,Type=String,Description="Strands of supporting reads for structural variant">
+##INFO=<ID=AC,Number=.,Type=Integer,Description="Allele count, summed up over all samples">
+##INFO=<ID=SUPP_VEC,Number=1,Type=String,Description="List of read support for all samples">
+##INFO=<ID=CONSENSUS_SUPPORT,Number=1,Type=Integer,Description="Number of reads that support the generated insertion (INS) consensus sequence">
+##INFO=<ID=RNAMES,Number=.,Type=String,Description="Names of supporting reads (if enabled with --output-rnames)">
+##INFO=<ID=AF,Number=1,Type=Float,Description="Allele Frequency">
+##INFO=<ID=NM,Number=.,Type=Float,Description="Mean number of query alignment length adjusted mismatches of supporting reads">
+##INFO=<ID=PHASE,Number=.,Type=String,Description="Phasing information derived from supporting reads, represented as list of: HAPLOTYPE,PHASESET,HAPLOTYPE_SUPPORT,PHASESET_SUPPORT,HAPLOTYPE_FILTER,PHASESET_FILTER">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	P50-4.trimed1000
+DQ657948.1	22620	Sniffles2.INS.25S0	N	GTAGTGGTGTAGTGGTGTAGTGGTGTAGTGGTGTAGTGGTGTAGTGGT	59	GT	PRECISE;SVTYPE=INS;SVLEN=48;END=22620;SUPPORT=2888;COVERAGE=2971,2910,2891,2886,3019;STRAND=+-;AF=0.999;STDEV_LEN=2.124;STDEV_POS=15.683;SUPPORT_LONG=0	GT:GQ:DR:DV	1/1:60:3:2888
+DQ657948.1	83046	Sniffles2.INS.2BS0	N	AGCCGAAGCAGCCGAAGCAGCCGAAGCAAACCCAACACCA	60	GT	PRECISE;SVTYPE=INS;SVLEN=40;END=83046;SUPPORT=318;COVERAGE=2161,2167,2160,2141,2126;STRAND=+-;AF=0.147;STDEV_LEN=2.823;STDEV_POS=13.355;SUPPORT_LONG=0	GT:GQ:DR:DV	0/0:60:1842:318
+DQ657948.1	216443	Sniffles2.INS.41S0	N	CAACAGCAGCAGCCTTCAGCACCTTCAGCACCTTCAGCACCTTCAGCACCTTCAGCACCTTCAGCACCTTCAGCACCTTCAACACCTTCAAGCACCTTCAGCA	59	GT	IMPRECISE;SVTYPE=INS;SVLEN=90;END=216443;SUPPORT=2750;COVERAGE=2370,2377,2385,2387,2437;STRAND=+-;AF=1.000;STDEV_LEN=5.285;STDEV_POS=45.041;SUPPORT_LONG=0	GT:GQ:DR:DV	1/1:60:0:2750
+DQ657948.1	228198	Sniffles2.INS.40S0	N	ATGAACAGAAGAAAGCTCAGAAGTGAGATGGGCCAGAAGCACGACAAGTACCAGGGCGCCGATCTCGAGGTCCG	60	GT	PRECISE;SVTYPE=INS;SVLEN=74;END=228198;SUPPORT=2855;COVERAGE=2479,2442,2454,2473,2490;STRAND=+-;AF=1.000;STDEV_LEN=1.013;STDEV_POS=12.353;SUPPORT_LONG=0	GT:GQ:DR:DV	1/1:60:0:2855
+DQ657948.1	284052	Sniffles2.INS.4FS0	N	GTAAGTACAAATTGTTTGACACATCAACT	58	PASS	PRECISE;SVTYPE=INS;SVLEN=29;END=284052;SUPPORT=283;COVERAGE=877,826,820,813,768;STRAND=+-;AF=0.345;STDEV_LEN=0.890;STDEV_POS=8.165;SUPPORT_LONG=0	GT:GQ:DR:DV	0/1:60:537:283
+DQ657948.1	287130	Sniffles2.INS.58S0	N	TAATGTCTAAGTATTTGTCTAAGTA	59	PASS	PRECISE;SVTYPE=INS;SVLEN=25;END=287130;SUPPORT=342;COVERAGE=611,569,557,554,517;STRAND=+-;AF=0.614;STDEV_LEN=0.000;STDEV_POS=0.000;SUPPORT_LONG=0	GT:GQ:DR:DV	0/1:60:215:342
