@@ -1,0 +1,38 @@
+# Charger les librairies nécessaires
+library(tidyverse)
+
+infile <- "../../Files/plot_files/summary_table_snp_with_ORF.csv"
+outfile <- "../../Plots/snp_par_ORF.png"
+
+# === 1. Charger le fichier ===
+data <- read.csv(infile, stringsAsFactors = FALSE)
+
+
+# === 3. Séparer les ORF multiples ===
+data_long <- data %>%
+  separate_rows(!!sym("orf"), sep = ";")
+
+# === 4. Compter le nombre de variants par ORF ===
+orf_counts <- data_long %>%
+  group_by(!!sym("orf")) %>%
+  summarise(nb_variants = n()) %>%
+  arrange(desc(nb_variants))
+
+# === 5. Garder les 20 ORF les plus fréquents ===
+top20_orf <- orf_counts %>%
+  slice_max(order_by = nb_variants, n = 20)
+
+# === 6. Graphique ===
+p <- ggplot(top20_orf, aes(x = reorder(!!sym("orf"), nb_variants),
+                      y = nb_variants)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  coord_flip() +
+  labs(
+    title = "ORF ayant accumulés le plus de SNP tout passages confondus",
+    x = "ORF",
+    y = "Nombre de variants"
+  ) +
+  theme_minimal()
+
+ggsave(outfile, p, width = 10, height = 6, dpi = 300)
+cat("Saved:", outfile, "\n")
